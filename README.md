@@ -36,6 +36,10 @@ cp .env.example .env
 - Anomaly detection (Z-score)
 - AI-generated insights: warnings, trends, recommendations
 
+## Dataset Note
+
+The provided dataset can look “abnormal” (e.g., many transactions on the same day, including multiple income entries). I treat it as valid input and do not “clean away” these patterns since the JSON already matches the expected schema; instead, the app focuses on validation and analysis, and surfaces unusual behavior via insights (e.g., anomaly detection).
+
 ## Testing
 
 ```bash
