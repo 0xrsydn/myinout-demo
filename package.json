@@ -1,0 +1,52 @@
+{
+  "name": "myinout-ai",
+  "version": "1.0.0",
+  "description": "AI-powered personal finance dashboard for analyzing spending patterns",
+  "module": "src/server/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run seed && concurrently \"bun run dev:server\" \"bun run dev:client\"",
+    "dev:server": "bun run --watch src/server/index.ts",
+    "dev:client": "vite",
+    "build": "vite build",
+    "start": "bun run seed && bun run src/server/index.ts",
+    "seed": "bun run scripts/seed-db.ts",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^22.x",
+    "@types/react": "^19.x",
+    "@types/react-dom": "^19.x",
+    "@vitejs/plugin-react": "^4.x",
+    "autoprefixer": "^10.x",
+    "concurrently": "^9.x",
+    "postcss": "^8.x",
+    "tailwindcss": "^3.x",
+    "typescript": "^5.x",
+    "vite": "^6.x",
+    "vitest": "^3.x"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.9",
+    "@hono/zod-validator": "^0.7.6",
+    "@openrouter/ai-sdk-provider": "^1.5.4",
+    "@tanstack/react-router": "^1.151.3",
+    "ai": "^6.0.39",
+    "date-fns": "^4.1.0",
+    "hono": "^4.11.4",
+    "lucide-react": "^0.562.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-markdown": "^10.1.0",
+    "recharts": "^3.6.0",
+    "remark-gfm": "^4.0.1",
+    "zod": "^4.3.5"
+  }
+}
