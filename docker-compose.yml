@@ -13,7 +13,13 @@ services:
       - OPENROUTER_MODEL=${OPENROUTER_MODEL:-}
     volumes:
       - myinout-data:/app/data
+    networks:
+      - brutaljokerz
     restart: unless-stopped
 
 volumes:
   myinout-data:
+
+networks:
+  brutaljokerz:
+    external: true
