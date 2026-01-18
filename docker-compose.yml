@@ -11,6 +11,7 @@ services:
       - PORT=3000
       - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
       - OPENROUTER_MODEL=${OPENROUTER_MODEL:-}
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-}
     volumes:
       - myinout-data:/app/data
     networks:
