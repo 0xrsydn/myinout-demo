@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Database files (will be created in container)
+data/transactions.db
+data/transactions.db-wal
+data/transactions.db-shm
+
+# Git
+.git/
+.gitignore
+
+# Environment (passed via docker-compose)
+.env
+.envrc
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+
+# Documentation / non-essential
+*.md
+!README.md
