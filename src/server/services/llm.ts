@@ -61,6 +61,7 @@ export async function enhanceInsight(
 
     const contextStr = buildContextString(context);
 
+    console.log(`[LLM] --> Calling OpenRouter (model: ${model}) for insight enhancement`);
     const { text } = await generateText({
       model: openrouter.chat(model),
       system: SYSTEM_PROMPT,
@@ -80,6 +81,7 @@ Buat deep analysis yang:
 
 Batasi 2-3 kalimat, profesional namun ramah.`,
     });
+    console.log(`[LLM] <-- OpenRouter response received`);
 
     return {
       ...insight,
@@ -138,6 +140,7 @@ export async function generateLLMSummary(
       .map((i) => `- ${i.title}: ${i.message}`)
       .join("\n");
 
+    console.log(`[LLM] --> Calling OpenRouter (model: ${model}) for summary generation`);
      const { text } = await generateText({
        model: openrouter.chat(model),
        system: SYSTEM_PROMPT,
@@ -151,6 +154,7 @@ ${insightsStr}
 
 Rangkum situasi keuangan pengguna secara membantu dan suportif, sambil menyoroti area yang perlu perhatian.`,
      });
+    console.log(`[LLM] <-- OpenRouter response received`);
 
     return text;
   } catch (error) {

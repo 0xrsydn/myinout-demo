@@ -299,6 +299,7 @@ export async function processChat(
     { role: "user" as const, content: message },
   ];
 
+  console.log(`[Chat] --> Calling OpenRouter (model: ${model}) for chat response`);
   const { text, toolCalls } = await generateText({
     model: openrouter.chat(model),
     system: CHAT_SYSTEM_PROMPT,
@@ -309,6 +310,7 @@ export async function processChat(
 
   // Extract tool names that were used
   const toolsUsed = toolCalls?.map((tc) => tc.toolName) ?? [];
+  console.log(`[Chat] <-- OpenRouter response received (tools used: ${toolsUsed.length})`);
 
   return {
     response: text,
